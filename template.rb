@@ -51,6 +51,14 @@ def create_scaffold_files
     end
 end
 
+def install_devise
+  gem 'devise'
+
+  generate 'devise:install'
+
+  generate :devise, 'User'
+end
+
 gem_group :development, :test do
   gem 'rspec-rails'
   gem 'pry'
