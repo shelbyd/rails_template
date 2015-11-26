@@ -88,11 +88,11 @@ rake 'db:migrate'
 route "root to: 'pages#home'"
 
 after_bundle do
-  git :init
-  git add: '.'
-  git commit: %Q{ -m 'initial commit' }
-
   run 'rspec --init'
 
   create_scaffold_files
+
+  git :init
+  git add: '.'
+  git commit: %Q{ -m 'initial commit' }
 end
