@@ -1,4 +1,4 @@
-- if controller_name != 'sessions'
+- if controller_name != 'sessions' 
   md-button href=new_session_path(resource_name) Log in
 
 - if devise_mapping.registerable? && controller_name != 'registrations' 
@@ -12,9 +12,9 @@
     | Didn't receive confirmation instructions?
 
 - if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' 
-  md-button href=new_unlock_path(resource_name) Didn't receive unlock instructions?
+  md-button href=new_unlock_path(resource_name) 
+    | Didn't receive unlock instructions?
 
 - if devise_mapping.omniauthable? 
   - resource_class.omniauth_providers.each do |provider| 
     md-button href=omniauth_authorize_path(resource_name, provider) Sign in with #{provider.to_s.titleize}
-  
