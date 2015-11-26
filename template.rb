@@ -61,6 +61,8 @@ end
 
 gem 'slim-rails'
 
+gem 'passenger'
+
 add_source 'http://rails-assets.org'
 
 gem 'rails-assets-angular-material'
