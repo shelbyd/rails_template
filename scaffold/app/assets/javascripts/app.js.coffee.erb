@@ -1,0 +1,5 @@
+angular.module('app', [
+  'ngMaterial'
+]).config(['$compileProvider', ($compileProvider) ->
+  $compileProvider.debugInfoEnabled(<%= Rails.env.production? ? 'false' : 'true' %>)
+])

@@ -27,11 +27,6 @@ def with_file(filename)
 end
 
 def add_angular_material
-  with_file 'app/assets/javascripts/application.js' do
-    replace '//= require angularjs_ujs', '//= require angular-material'
-    replace '//= require angularjs', '//= require angular'
-  end
-
   with_file 'app/assets/stylesheets/application.css' do
     add_before ' *= require_tree .', ' *= require angular-material'
   end
