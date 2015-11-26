@@ -50,7 +50,6 @@ def install_devise
   gem 'devise'
 
   generate 'devise:install'
-
   generate :devise, 'User'
 end
 
