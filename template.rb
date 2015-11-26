@@ -78,9 +78,11 @@ with_file 'config/database.yml' do
     '  password: development_password',
   ]
 end
-# run "sed -i 's/encoding: unicode/encoding: unicode\\n  username: development_user\\n  password: development_password/' config/database.yml"
 
-run 'rm README.rdoc'
+[
+  'README.rdoc',
+  'app/views/layouts/application.html.erb',
+].each { |filename| run "rm #{filename}" }
 
 install_devise
 
