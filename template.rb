@@ -4,6 +4,20 @@ def add_angular_material
   run "sed -i 's/ \\*= require_tree \\./ \\*= require angular-material\\n \\*= require_tree \\./' app/assets/stylesheets/application.css"
 end
 
+def create_scaffold_files
+  require 'pathname'
+
+  scaffold = Pathname.new(ENV['SCAFFOLD_DIRECTORY'])
+  files = scaffold + '**/*'
+
+  pairs = Dir[files.to_s]
+    .reject { |filename| File.directory? filename }
+    .each do |filename|
+      desired_name = Pathname.new(filename).relative_path_from(scaffold)
+      file desired_name, File.read(filename)
+    end
+end
+
 gem_group :development, :test do
   gem 'rspec-rails'
   gem 'pry'
@@ -27,14 +41,7 @@ rake 'db:migrate'
 
 route "root to: 'pages#home'"
 
-file 'app/controllers/pages_controller.rb', <<-CODE
-  class PagesController < ApplicationController
-  end
-CODE
-
-file 'app/views/pages/home.html.slim', <<-CODE
-  h1 Home Page
-CODE
+create_scaffold_files
 
 after_bundle do
   git :init

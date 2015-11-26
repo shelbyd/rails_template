@@ -2,6 +2,9 @@
 
 set -e
 
+
+export SCAFFOLD_DIRECTORY=$(pwd)/scaffold
+
 rails new $@ \
   -m ./template.rb \
   --skip-keeps \
