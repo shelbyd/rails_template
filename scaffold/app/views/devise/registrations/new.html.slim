@@ -4,7 +4,7 @@ h2 Sign up
   = devise_error_messages!
   
   = f.input :email, input_html: { autofocus: true }
-  = f.input :password, label: "Password#{@minimum_password_length ? " #{@miniumum_password_length} characters minimum" : ''}"
+  = f.input :password, label: "Password#{@minimum_password_length ? " (#{@minimum_password_length} characters minimum" : ''})"
   = f.input :password_confirmation, as: :password
 
   = f.action :submit, label: 'Sign up'
