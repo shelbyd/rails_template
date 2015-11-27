@@ -6,10 +6,11 @@ class BooleanInput < Formtastic::Inputs::BooleanInput
       'md-checkbox',
       hidden_field_html << label_text,
       input_html_options.merge(
-        'ng-true-value' => checked_value,
-        'ng-false-value' => unchecked_value,
+        'ng-true-value' => checked_value.to_json,
+        'ng-false-value' => unchecked_value.to_json,
         'ng-model' => angular_variable_name,
         'aria-label' => label_text,
+        'ng-init' => "#{angular_variable_name} = #{checked? ? checked_value.to_json : unchecked_value.to_json}",
       )
     )
   end
@@ -18,7 +19,7 @@ class BooleanInput < Formtastic::Inputs::BooleanInput
     template.hidden_field_tag(
       input_html_options[:name],
       nil,
-      'ng-value' => "{{#{angular_variable_name}}}",
+      'value' => "{{#{angular_variable_name}}}",
       id: nil,
       disabled: input_html_options[:disabled]
     )
@@ -26,5 +27,7 @@ class BooleanInput < Formtastic::Inputs::BooleanInput
 
   def angular_variable_name
     input_html_options[:name]
+      .gsub('[', '.')
+      .gsub(']', '')
   end
 end
