@@ -1,7 +1,7 @@
 h2 Log in
 
 = semantic_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  = f.input :email, autofocus: true
+  = f.input :email, input_html: { autofocus: true }
   = f.input :password, autocomplete: 'off'
 
   - if devise_mapping.rememberable? 
@@ -12,7 +12,7 @@ h2 Log in
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| 
   .field
     = f.label :email 
-    = f.email_field :email, autofocus: true 
+    = f.email_field :email
 
   .field
     = f.label :password 
