@@ -59,13 +59,14 @@ gem_group :development, :test do
 end
 
 gem 'slim-rails'
-
 gem 'passenger'
+
+gem 'formtastic', '~> 3.0'
+generate 'formtastic:install'
 
 add_source 'http://rails-assets.org'
 
 gem 'rails-assets-angular-material'
-
 add_angular_material
 
 with_file 'config/database.yml' do
