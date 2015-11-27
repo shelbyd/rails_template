@@ -7,6 +7,6 @@ h1 Log in
   - if devise_mapping.rememberable? 
     = f.input :remember_me, as: :boolean
     
-  = f.action :submit, label: 'Log In'
+  = f.action :submit, label: 'Log In', primary: true
 
 = render "devise/shared/links"

@@ -5,6 +5,6 @@ h2 Sign up
   = f.input :password, label: "Password#{@minimum_password_length ? " (#{@minimum_password_length} characters minimum" : ''})"
   = f.input :password_confirmation, as: :password
 
-  = f.action :submit, label: 'Sign up'
+  = f.action :submit, label: 'Sign up', primary: true
 
 = render "devise/shared/links"

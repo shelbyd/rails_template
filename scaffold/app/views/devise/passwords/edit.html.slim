@@ -6,6 +6,6 @@ h2 Change your password
   = f.input :password, label: "New password#{@minimum_password_length ? " (#{@minimum_password_length characters minimum})"}", input_html: { autofocus: true, autocomplete: 'off' }
   = f.input :password_confirmation, label: 'Confirm new password'
   
-  = f.action :submit, label: 'Change password'
+  = f.action :submit, label: 'Change password', primary: true
 
 = render "devise/shared/links"

@@ -4,6 +4,6 @@ h2 Resend unlock instructions
 
   = f.input :email, input_html: { autofocus: true }
 
-  = f.action :submit, label: 'Resend instructions'
+  = f.action :submit, label: 'Resend instructions', primary: true
 
 = render "devise/shared/links"
